@@ -1,6 +1,6 @@
 # The Project Management MVP web app
 
-## Business Requirements
+## Language Requirements
 The project is for French spoken persons.
 - Build it for French users.
 - Update all other files to reflect this language.
