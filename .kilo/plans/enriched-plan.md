@@ -11,8 +11,8 @@ Build a full-stack Kanban board app: NextJS frontend (static export) served by a
 ### Substeps
 - [x] Review existing frontend code structure
 - [x] Enrich PLAN.md with detailed substeps, tests, and success criteria
-- [x] Create `frontend/AGENTS.md` describing the existing frontend code
-- [x] Get user sign-off on the enriched plan
+- [ ] Create `frontend/AGENTS.md` describing the existing frontend code
+- [ ] Get user sign-off on the enriched plan
 
 ### Tests & Success Criteria
 - User approves the enriched plan before moving to Part 2
@@ -22,27 +22,27 @@ Build a full-stack Kanban board app: NextJS frontend (static export) served by a
 ## Part 2: Scaffolding - Docker + FastAPI + Hello World
 
 ### Substeps
-- [x] Create `backend/main.py` with a minimal FastAPI app:
+- [ ] Create `backend/main.py` with a minimal FastAPI app:
   - `GET /` serves a static HTML file ("Hello World")
   - `GET /api/hello` returns a JSON response `{"message": "Hello from FastAPI"}`
-- [x] Create `backend/pyproject.toml` with dependencies: `fastapi`, `uvicorn`, `python-dotenv`
-- [x] Configure NextJS for static export (`output: "export"` in `next.config.ts`)
-- [x] Create `Dockerfile` at project root:
+- [ ] Create `backend/pyproject.toml` with dependencies: `fastapi`, `uvicorn`, `python-dotenv`
+- [ ] Configure NextJS for static export (`output: "export"` in `next.config.ts`)
+- [ ] Create `Dockerfile` at project root:
   - Stage 1: Node - build the NextJS static export into `frontend/out/`
   - Stage 2: Python (using `uv`) - install backend deps, copy static files into a directory served by FastAPI
   - Expose port 8000
   - CMD: `uvicorn main:app --host 0.0.0.0 --port 8000`
-- [x] Create `docker-compose.yml` that loads `.env` and maps port 8000
-- [x] Create start/stop scripts in `scripts/`:
+- [ ] Create `docker-compose.yml` that loads `.env` and maps port 8000
+- [ ] Create start/stop scripts in `scripts/`:
   - `start.bat` (Windows), `start.sh` (Mac/Linux): `docker compose up --build`
   - `stop.bat` (Windows), `stop.sh` (Mac/Linux): `docker compose down`
-- [x] Update `backend/AGENTS.md` and `scripts/AGENTS.md`
-- [x] Update `frontend/AGENTS.md` to reflect static export changes
+- [ ] Update `backend/AGENTS.md` and `scripts/AGENTS.md`
+- [ ] Update `frontend/AGENTS.md` to reflect static export changes
 
 ### Tests
-- [x] `docker compose up --build` succeeds without errors (tested locally: Docker Desktop not running, but backend verified)
-- [x] `GET http://localhost:8000/` returns HTML with "Hello World"
-- [x] `GET http://localhost:8000/api/hello` returns `{"message": "Hello from FastAPI"}`
+- [ ] `docker compose up --build` succeeds without errors
+- [ ] `GET http://localhost:8000/` returns HTML with "Hello World"
+- [ ] `GET http://localhost:8000/api/hello` returns `{"message": "Hello from FastAPI"}`
 - [ ] Start and stop scripts work on target platform
 
 ### Success Criteria
@@ -124,7 +124,7 @@ Build a full-stack Kanban board app: NextJS frontend (static export) served by a
   - `columns` (id, board_id, title, position)
   - `cards` (id, column_id, title, details, position)
 - [ ] Save schema as `docs/database-schema.json` and `docs/database.md`
-- [ ] Add `chat_messages` table for AI conversation history:
+- [ ] Add `aiichat` table for conversation history:
   - `chat_messages` (id, user_id, role, content, created_at)
 - [ ] Get user sign-off on the schema
 
@@ -263,7 +263,7 @@ Build a full-stack Kanban board app: NextJS frontend (static export) served by a
 - [ ] Add sidebar to the main `KanbanBoard` layout (right side, collapsible)
 - [ ] Wire chat input to `POST /api/ai/chat`
 - [ ] After AI response, if actions were taken, refresh the board from `GET /api/board`
-- [ ] Show visual indication of AI actions (e.g., "Carte creee dans Backlog")
+- [ ] Show visual indication of AI actions (e.g., "Card created in Backlog")
 - [ ] Style with the project color scheme
 - [ ] Translate all chat UI strings to French
 - [ ] Responsive design: sidebar overlays on smaller screens
